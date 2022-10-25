@@ -27,6 +27,8 @@ class AssertEan
             return false;
         }
 
+        return true;
+
         $oddSum = 0;
         $evenSum = 0;
 
