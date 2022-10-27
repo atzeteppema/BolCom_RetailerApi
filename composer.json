@@ -1,12 +1,15 @@
 {
-    "name": "bol-com/retailer-api",
+    "name": "atzeteppema/bol-com-retailer-api",
     "type": "library",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "authors": [
         {
             "name": "Reach Digital",
             "email": "info@reachdigital.nl",
             "homepage": "https://www.reachdigital.nl/"
+        }, {
+            "name": "Atze Teppema",
+            "email": "atttze@gmail.com"
         }
     ],
     "description": "Package to talk to the bol.com v6 API.",
