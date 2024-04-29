@@ -14,10 +14,10 @@ final class Store
     private $visible;
 
     /**
-     * @param \BolCom\RetailerApi\Model\Offer\Title $productTitle
+     * @param \BolCom\RetailerApi\Model\Offer\Title|null $productTitle
      * @param \BolCom\RetailerApi\Model\Offer\CountryCode[] $visible
      */
-    public function __construct(Title $productTitle, array $visible = null)
+    public function __construct(Title $productTitle = null, array $visible = null)
     {
         $this->productTitle = $productTitle;
         if ($visible !== null) {
@@ -31,7 +31,7 @@ final class Store
         }
     }
 
-    public function productTitle(): Title
+    public function productTitle(): ?Title
     {
         return $this->productTitle;
     }
@@ -44,7 +44,7 @@ final class Store
         return $this->visible;
     }
 
-    public function withProductTitle(Title $productTitle): Store
+    public function withProductTitle(Title $productTitle = null): Store
     {
         return new self($productTitle, $this->visible);
     }
@@ -60,11 +60,15 @@ final class Store
 
     public static function fromArray(array $data): Store
     {
-        if (! isset($data['productTitle']) || ! \is_string($data['productTitle'])) {
-            throw new \InvalidArgumentException("Key 'productTitle' is missing in data array or is not a string");
-        }
+        if (isset($data['productTitle'])) {
+            if (! \is_string($data['productTitle'])) {
+                throw new \InvalidArgumentException("Value for 'productTitle' is not a string in data array");
+            }
 
-        $productTitle = Title::fromString($data['productTitle']);
+            $productTitle = Title::fromString($data['productTitle']);
+        } else {
+            $productTitle = null;
+        }
 
         if (isset($data['visible'])) {
             if (! \is_array($data['visible'])) {
@@ -74,8 +78,8 @@ final class Store
             $visible = [];
 
             foreach ($data['visible'] as $__value) {
-                if (! \is_array($data['visible'])) {
-                    throw new \InvalidArgumentException("Key 'visible' in data array or is not an array of arrays");
+                if (! \is_array($__value)) {
+                    throw new \InvalidArgumentException("Key 'visible' in data array is not an array of arrays");
                 }
 
                 $visible[] = CountryCode::fromArray($__value);
@@ -98,7 +102,7 @@ final class Store
         }
 
         return [
-            'productTitle' => $this->productTitle->toString(),
+            'productTitle' => null === $this->productTitle ? null : $this->productTitle->toString(),
             'visible' => $visible,
         ];
     }

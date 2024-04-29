@@ -106,7 +106,7 @@ namespace BolCom\RetailerApi\Model\Offer {
     } deriving (FromArray, ToArray);
 
     data Store = Store {
-        Title $productTitle,
+        ?Title $productTitle,
         ?CountryCode[] $visible
     } deriving (FromArray, ToArray);
 
