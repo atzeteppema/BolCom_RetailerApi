@@ -51,6 +51,14 @@ class GetStatusByProcessIdsHandler implements GetStatusByProcessIdsHandlerInterf
             // Current return includes milliseconds: 2018-12-20T11:34:50.237+01:00
             // Convert this timestamp into ISO 8601 format.
             $response = $promise['value']->getBody()->json();
+
+            // Current return includes ???seconds: 2024-04-29T14:23:55.562058624+02:00
+            $posDot = strpos($response['createTimestamp'], '.');
+            $posPlus = strpos($response['createTimestamp'], '+');
+            if ($posDot && $posPlus && $posPlus > $posDot + 3) {
+                $response['createTimestamp'] = substr($response['createTimestamp'], 0, $posDot + 4) . substr($response['createTimestamp'], $posPlus);
+            }
+
             $response['createTimestamp'] = (new \DateTime($response['createTimestamp']))->format(\DateTime::ATOM);
 
             return $response;
