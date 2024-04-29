@@ -43,7 +43,7 @@ class GetStatusByProcessIdsHandler implements GetStatusByProcessIdsHandlerInterf
             ]);
         }
 
-        $fulfilledPromises = array_filter(\GuzzleHttp\Promise\settle($promises)->wait(), function (array $promise) {
+        $fulfilledPromises = array_filter(\GuzzleHttp\Promise\Utils::settle($promises)->wait(), function (array $promise) {
             return $promise['state'] === PromiseInterface::FULFILLED;
         });
 
