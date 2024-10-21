@@ -21,6 +21,7 @@ final class EventType
         'UPDATE_OFFER' => 'UPDATE_OFFER',
         'UPDATE_OFFER_PRICE' => 'UPDATE_OFFER_PRICE',
         'UPDATE_OFFER_STOCK' => 'UPDATE_OFFER_STOCK',
+        'CREATE_SHIPMENT' => 'CREATE_SHIPMENT',
     ];
 
     const CREATE_OFFER = 'CREATE_OFFER';
@@ -33,6 +34,7 @@ final class EventType
     const UPDATE_OFFER = 'UPDATE_OFFER';
     const UPDATE_OFFER_PRICE = 'UPDATE_OFFER_PRICE';
     const UPDATE_OFFER_STOCK = 'UPDATE_OFFER_STOCK';
+    const CREATE_SHIPMENT = 'CREATE_SHIPMENT';
 
     private $name;
     private $value;
@@ -93,6 +95,11 @@ final class EventType
         return new self('UPDATE_OFFER_STOCK');
     }
 
+    public static function CREATE_SHIPMENT(): self
+    {
+        return new self('CREATE_SHIPMENT');
+    }
+
     public static function fromName(string $value): self
     {
         if (! isset(self::OPTIONS[$value])) {
@@ -110,7 +117,7 @@ final class EventType
             }
         }
 
-        throw new \InvalidArgumentException('Unknown enum value given');
+        throw new \InvalidArgumentException('Unknown enum value given; ' . $value);
     }
 
     public function equals(EventType $other): bool

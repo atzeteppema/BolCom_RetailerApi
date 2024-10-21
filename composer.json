@@ -7,9 +7,14 @@
             "name": "Reach Digital",
             "email": "info@reachdigital.nl",
             "homepage": "https://www.reachdigital.nl/"
+        },
+        {
+            "name": "Atze Teppema",
+            "email": "atze.teppema@ttttsoftware.nl",
+            "homepage": "https://www.tttsoftware.nl/"
         }
     ],
-    "description": "Package to talk to the bol.com v9 API.",
+    "description": "Package to talk to the bol.com v10 API.",
     "license": "Apache-2.0",
     "require": {
         "guzzlehttp/guzzle": "^7.2.0",

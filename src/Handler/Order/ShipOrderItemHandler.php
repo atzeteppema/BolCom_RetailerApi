@@ -38,7 +38,7 @@ class ShipOrderItemHandler implements ShipOrderItemHandlerInterface
             $payload['transport']['trackAndTrace'] = '';
         }
 
-        $response = $this->client->put('orders/shipment', [
+        $response = $this->client->post('shipments', [
             'json' => $payload,
             'headers' => [
                 'Accept' => \BolCom\RetailerApi\Client\ClientConfig::ACCEPT_HEADER,
