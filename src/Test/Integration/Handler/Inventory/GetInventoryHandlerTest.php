@@ -9,6 +9,8 @@ namespace BolCom\RetailerApi\Test\Integration\Handler\Inventory;
 
 use BolCom\RetailerApi\Client\ClientConfig;
 use BolCom\RetailerApi\Infrastructure\ClientPool;
+use BolCom\RetailerApi\Model\Inventory\InventoryOffer;
+use BolCom\RetailerApi\Model\Inventory\InventoryOfferList;
 use BolCom\RetailerApi\Model\Inventory\Query\GetInventory;
 
 class GetInventoryHandlerTest extends \PHPUnit\Framework\TestCase
@@ -24,6 +26,12 @@ class GetInventoryHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function test__invoke()
     {
-        $this->messageBus->dispatch(GetInventory::with());
+        $inventoryOfferList = $this->messageBus->dispatch(GetInventory::with());
+
+        $this->assertInstanceOf(InventoryOfferList::class, $inventoryOfferList);
+
+        foreach ($inventoryOfferList->inventory() as $inventoryOffer) {
+            $this->assertInstanceOf(InventoryOffer::class, $inventoryOffer);
+        }
     }
 }

@@ -15,7 +15,7 @@ final class RetailerOfferUpdate
     private $unknownProductTitle;
     private $fulfilment;
 
-    public function __construct(Reference $reference = null, bool $onHoldByRetailer, Title $unknownProductTitle = null, Fulfilment $fulfilment)
+    public function __construct(?Reference $reference = null, bool $onHoldByRetailer, ?Title $unknownProductTitle = null, Fulfilment $fulfilment)
     {
         $this->reference = $reference;
         $this->onHoldByRetailer = $onHoldByRetailer;
@@ -43,7 +43,7 @@ final class RetailerOfferUpdate
         return $this->fulfilment;
     }
 
-    public function withReference(Reference $reference = null): RetailerOfferUpdate
+    public function withReference(?Reference $reference = null): RetailerOfferUpdate
     {
         return new self($reference, $this->onHoldByRetailer, $this->unknownProductTitle, $this->fulfilment);
     }
@@ -53,7 +53,7 @@ final class RetailerOfferUpdate
         return new self($this->reference, $onHoldByRetailer, $this->unknownProductTitle, $this->fulfilment);
     }
 
-    public function withUnknownProductTitle(Title $unknownProductTitle = null): RetailerOfferUpdate
+    public function withUnknownProductTitle(?Title $unknownProductTitle = null): RetailerOfferUpdate
     {
         return new self($this->reference, $this->onHoldByRetailer, $unknownProductTitle, $this->fulfilment);
     }

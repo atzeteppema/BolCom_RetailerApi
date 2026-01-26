@@ -22,7 +22,7 @@ final class OrderItem
     private $cancellationRequest;
     private $selectedDeliveryWindow;
 
-    public function __construct(OrderItemId $orderItemId, OrderFulfilmemt $fulfilment, OrderOffer $offer, OrderProduct $product, Quantity $quantity, Quantity $quantityShipped = null, Quantity $quantityCancelled = null, Price $unitPrice, \BolCom\RetailerApi\Model\CurrencyAmount $commission, bool $cancellationRequest = null, SelectedDeliveryWindow $selectedDeliveryWindow = null)
+    public function __construct(OrderItemId $orderItemId, OrderFulfilmemt $fulfilment, OrderOffer $offer, OrderProduct $product, Quantity $quantity, ?Quantity $quantityShipped = null, ?Quantity $quantityCancelled = null, Price $unitPrice, \BolCom\RetailerApi\Model\CurrencyAmount $commission, ?bool $cancellationRequest = null, ?SelectedDeliveryWindow $selectedDeliveryWindow = null)
     {
         $this->orderItemId = $orderItemId;
         $this->fulfilment = $fulfilment;
@@ -117,12 +117,12 @@ final class OrderItem
         return new self($this->orderItemId, $this->fulfilment, $this->offer, $this->product, $quantity, $this->quantityShipped, $this->quantityCancelled, $this->unitPrice, $this->commission, $this->cancellationRequest, $this->selectedDeliveryWindow);
     }
 
-    public function withQuantityShipped(Quantity $quantityShipped = null): OrderItem
+    public function withQuantityShipped(?Quantity $quantityShipped = null): OrderItem
     {
         return new self($this->orderItemId, $this->fulfilment, $this->offer, $this->product, $this->quantity, $quantityShipped, $this->quantityCancelled, $this->unitPrice, $this->commission, $this->cancellationRequest, $this->selectedDeliveryWindow);
     }
 
-    public function withQuantityCancelled(Quantity $quantityCancelled = null): OrderItem
+    public function withQuantityCancelled(?Quantity $quantityCancelled = null): OrderItem
     {
         return new self($this->orderItemId, $this->fulfilment, $this->offer, $this->product, $this->quantity, $this->quantityShipped, $quantityCancelled, $this->unitPrice, $this->commission, $this->cancellationRequest, $this->selectedDeliveryWindow);
     }
@@ -137,12 +137,12 @@ final class OrderItem
         return new self($this->orderItemId, $this->fulfilment, $this->offer, $this->product, $this->quantity, $this->quantityShipped, $this->quantityCancelled, $this->unitPrice, $commission, $this->cancellationRequest, $this->selectedDeliveryWindow);
     }
 
-    public function withCancellationRequest(bool $cancellationRequest = null): OrderItem
+    public function withCancellationRequest(?bool $cancellationRequest = null): OrderItem
     {
         return new self($this->orderItemId, $this->fulfilment, $this->offer, $this->product, $this->quantity, $this->quantityShipped, $this->quantityCancelled, $this->unitPrice, $this->commission, $cancellationRequest, $this->selectedDeliveryWindow);
     }
 
-    public function withSelectedDeliveryWindow(SelectedDeliveryWindow $selectedDeliveryWindow = null): OrderItem
+    public function withSelectedDeliveryWindow(?SelectedDeliveryWindow $selectedDeliveryWindow = null): OrderItem
     {
         return new self($this->orderItemId, $this->fulfilment, $this->offer, $this->product, $this->quantity, $this->quantityShipped, $this->quantityCancelled, $this->unitPrice, $this->commission, $this->cancellationRequest, $selectedDeliveryWindow);
     }

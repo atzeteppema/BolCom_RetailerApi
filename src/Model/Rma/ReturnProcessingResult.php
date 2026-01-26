@@ -15,7 +15,7 @@ final class ReturnProcessingResult
     private $handlingResult;
     private $processingDateTime;
 
-    public function __construct(int $quantity = null, ProcessingResult $processingResults = null, HandlingResult $handlingResult = null, \BolCom\RetailerApi\Model\DateTime $processingDateTime = null)
+    public function __construct(?int $quantity = null, ?ProcessingResult $processingResults = null, ?HandlingResult $handlingResult = null, ?\BolCom\RetailerApi\Model\DateTime $processingDateTime = null)
     {
         $this->quantity = $quantity;
         $this->processingResults = $processingResults;
@@ -43,22 +43,22 @@ final class ReturnProcessingResult
         return $this->processingDateTime;
     }
 
-    public function withQuantity(int $quantity = null): ReturnProcessingResult
+    public function withQuantity(?int $quantity = null): ReturnProcessingResult
     {
         return new self($quantity, $this->processingResults, $this->handlingResult, $this->processingDateTime);
     }
 
-    public function withProcessingResults(ProcessingResult $processingResults = null): ReturnProcessingResult
+    public function withProcessingResults(?ProcessingResult $processingResults = null): ReturnProcessingResult
     {
         return new self($this->quantity, $processingResults, $this->handlingResult, $this->processingDateTime);
     }
 
-    public function withHandlingResult(HandlingResult $handlingResult = null): ReturnProcessingResult
+    public function withHandlingResult(?HandlingResult $handlingResult = null): ReturnProcessingResult
     {
         return new self($this->quantity, $this->processingResults, $handlingResult, $this->processingDateTime);
     }
 
-    public function withProcessingDateTime(\BolCom\RetailerApi\Model\DateTime $processingDateTime = null): ReturnProcessingResult
+    public function withProcessingDateTime(?\BolCom\RetailerApi\Model\DateTime $processingDateTime = null): ReturnProcessingResult
     {
         return new self($this->quantity, $this->processingResults, $this->handlingResult, $processingDateTime);
     }

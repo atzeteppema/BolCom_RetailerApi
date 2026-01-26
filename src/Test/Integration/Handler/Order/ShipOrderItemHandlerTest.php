@@ -28,15 +28,15 @@ class ShipOrderItemHandlerTest extends \PHPUnit\Framework\TestCase
     public function testTransportInstruction()
     {
         $this->messageBus->dispatch(ShipOrderItems::with([
-                ShipOrderItem::fromArray([
-                    'orderItemId' => '6107434013'
-                    ])],
-                'Shipment Reference',
-                null,
-                TransportInstruction::fromArray([
-                    'transporterCode' => 'TNT',
-                    'trackAndTrace' => '123456789'
-                ])
+            ShipOrderItem::fromArray([
+                'orderItemId' => '6107434013'
+                ])],
+            'Shipment Reference',
+            null,
+            TransportInstruction::fromArray([
+                'transporterCode' => 'TNT',
+                'trackAndTrace' => '123456789'
+            ])
         ));
     }
 

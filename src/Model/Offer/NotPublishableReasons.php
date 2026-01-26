@@ -13,7 +13,7 @@ final class NotPublishableReasons
     private $code;
     private $description;
 
-    public function __construct(string $code, string $description = null)
+    public function __construct(string $code, ?string $description = null)
     {
         $this->code = $code;
         $this->description = $description;
@@ -34,7 +34,7 @@ final class NotPublishableReasons
         return new self($code, $this->description);
     }
 
-    public function withDescription(string $description = null): NotPublishableReasons
+    public function withDescription(?string $description = null): NotPublishableReasons
     {
         return new self($this->code, $description);
     }

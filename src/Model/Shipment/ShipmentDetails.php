@@ -24,7 +24,7 @@ final class ShipmentDetails
     private $company;
     private $deliveryPhoneNumber;
 
-    public function __construct(string $salutation = null, string $firstName = null, string $surname = null, string $streetName = null, string $houseNumber = null, string $houseNumberExtension = null, string $extraAddressInformation = null, string $zipCode, string $city = null, string $countryCode, string $email = null, string $company = null, string $deliveryPhoneNumber = null)
+    public function __construct(?string $salutation = null, ?string $firstName = null, ?string $surname = null, ?string $streetName = null, ?string $houseNumber = null, ?string $houseNumberExtension = null, ?string $extraAddressInformation = null, ?string $zipCode, ?string $city = null, string $countryCode, ?string $email = null, ?string $company = null, ?string $deliveryPhoneNumber = null)
     {
         $this->salutation = $salutation;
         $this->firstName = $firstName;
@@ -106,37 +106,37 @@ final class ShipmentDetails
         return $this->deliveryPhoneNumber;
     }
 
-    public function withSalutation(string $salutation = null): ShipmentDetails
+    public function withSalutation(?string $salutation = null): ShipmentDetails
     {
         return new self($salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withFirstName(string $firstName = null): ShipmentDetails
+    public function withFirstName(?string $firstName = null): ShipmentDetails
     {
         return new self($this->salutation, $firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withSurname(string $surname = null): ShipmentDetails
+    public function withSurname(?string $surname = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withStreetName(string $streetName = null): ShipmentDetails
+    public function withStreetName(?string $streetName = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withHouseNumber(string $houseNumber = null): ShipmentDetails
+    public function withHouseNumber(?string $houseNumber = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withHouseNumberExtension(string $houseNumberExtension = null): ShipmentDetails
+    public function withHouseNumberExtension(?string $houseNumberExtension = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withExtraAddressInformation(string $extraAddressInformation = null): ShipmentDetails
+    public function withExtraAddressInformation(?string $extraAddressInformation = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
@@ -146,7 +146,7 @@ final class ShipmentDetails
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $zipCode, $this->city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withCity(string $city = null): ShipmentDetails
+    public function withCity(?string $city = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $city, $this->countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
@@ -156,17 +156,17 @@ final class ShipmentDetails
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $countryCode, $this->email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withEmail(string $email = null): ShipmentDetails
+    public function withEmail(?string $email = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $email, $this->company, $this->deliveryPhoneNumber);
     }
 
-    public function withCompany(string $company = null): ShipmentDetails
+    public function withCompany(?string $company = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $company, $this->deliveryPhoneNumber);
     }
 
-    public function withDeliveryPhoneNumber(string $deliveryPhoneNumber = null): ShipmentDetails
+    public function withDeliveryPhoneNumber(?string $deliveryPhoneNumber = null): ShipmentDetails
     {
         return new self($this->salutation, $this->firstName, $this->surname, $this->streetName, $this->houseNumber, $this->houseNumberExtension, $this->extraAddressInformation, $this->zipCode, $this->city, $this->countryCode, $this->email, $this->company, $deliveryPhoneNumber);
     }

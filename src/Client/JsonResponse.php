@@ -10,6 +10,7 @@ namespace BolCom\RetailerApi\Client;
 use GuzzleHttp\Psr7\StreamDecoratorTrait;
 use Psr\Http\Message\StreamInterface;
 
+#[\AllowDynamicProperties]
 class JsonResponse implements StreamInterface
 {
     use StreamDecoratorTrait;

@@ -35,7 +35,7 @@ final class RetailerOffer
      * @param \BolCom\RetailerApi\Model\Offer\OfferCondition $condition
      * @param \BolCom\RetailerApi\Model\Offer\NotPublishableReasons[] $notPublishableReasons
      */
-    public function __construct(OfferId $offerId, Ean $ean, Reference $reference, bool $onHoldByRetailer, Title $unknownProductTitle = null, Pricing $pricing, OfferStock $stock, Fulfilment $fulfilment, Store $store, OfferCondition $condition, array $notPublishableReasons = null)
+    public function __construct(OfferId $offerId, Ean $ean, Reference $reference, bool $onHoldByRetailer, ?Title $unknownProductTitle = null, Pricing $pricing, OfferStock $stock, Fulfilment $fulfilment, Store $store, OfferCondition $condition, ?array $notPublishableReasons = null)
     {
         $this->offerId = $offerId;
         $this->ean = $ean;
@@ -136,7 +136,7 @@ final class RetailerOffer
         return new self($this->offerId, $this->ean, $this->reference, $onHoldByRetailer, $this->unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment, $this->store, $this->condition, $this->notPublishableReasons);
     }
 
-    public function withUnknownProductTitle(Title $unknownProductTitle = null): RetailerOffer
+    public function withUnknownProductTitle(?Title $unknownProductTitle = null): RetailerOffer
     {
         return new self($this->offerId, $this->ean, $this->reference, $this->onHoldByRetailer, $unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment, $this->store, $this->condition, $this->notPublishableReasons);
     }
@@ -170,7 +170,7 @@ final class RetailerOffer
      * @param \BolCom\RetailerApi\Model\Offer\NotPublishableReasons[] $notPublishableReasons
      * @return \BolCom\RetailerApi\Model\Offer\RetailerOffer
      */
-    public function withNotPublishableReasons(array $notPublishableReasons = null): RetailerOffer
+    public function withNotPublishableReasons(?array $notPublishableReasons = null): RetailerOffer
     {
         return new self($this->offerId, $this->ean, $this->reference, $this->onHoldByRetailer, $this->unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment, $this->store, $this->condition, $notPublishableReasons);
     }

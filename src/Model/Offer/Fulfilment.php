@@ -13,7 +13,7 @@ final class Fulfilment
     private $method;
     private $deliveryCode;
 
-    public function __construct(FulfilmentMethod $method, DeliveryCode $deliveryCode = null)
+    public function __construct(FulfilmentMethod $method, ?DeliveryCode $deliveryCode = null)
     {
         $this->method = $method;
         $this->deliveryCode = $deliveryCode;
@@ -34,7 +34,7 @@ final class Fulfilment
         return new self($method, $this->deliveryCode);
     }
 
-    public function withDeliveryCode(DeliveryCode $deliveryCode = null): Fulfilment
+    public function withDeliveryCode(?DeliveryCode $deliveryCode = null): Fulfilment
     {
         return new self($this->method, $deliveryCode);
     }

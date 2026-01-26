@@ -51,7 +51,7 @@ final class GetInventory extends \Prooph\Common\Messaging\Query
      * @param \BolCom\RetailerApi\Model\Inventory\State $state
      * @param string[] $quantity
      */
-public static function with(int $page = null, string $query = null, \BolCom\RetailerApi\Model\Inventory\Stock $stock = null, \BolCom\RetailerApi\Model\Inventory\State $state = null, array $quantity = null): GetInventory
+public static function with(?int $page = null, ?string $query = null, ?\BolCom\RetailerApi\Model\Inventory\Stock $stock = null, ?\BolCom\RetailerApi\Model\Inventory\State $state = null, ?array $quantity = null): GetInventory
     {
         return new self([
             'page' => $page,

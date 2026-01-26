@@ -16,7 +16,7 @@ final class OrderFulfilmemt
     private $exactDeliveryDate;
     private $expiryDate;
 
-    public function __construct(\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null, DistributionParty $distributionParty = null, \BolCom\RetailerApi\Model\Date $latestDeliveryDate = null, \BolCom\RetailerApi\Model\Date $exactDeliveryDate = null, \BolCom\RetailerApi\Model\Date $expiryDate = null)
+    public function __construct(?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null, ?DistributionParty $distributionParty = null, ?\BolCom\RetailerApi\Model\Date $latestDeliveryDate = null, ?\BolCom\RetailerApi\Model\Date $exactDeliveryDate = null, ?\BolCom\RetailerApi\Model\Date $expiryDate = null)
     {
         $this->method = $method;
         $this->distributionParty = $distributionParty;
@@ -50,27 +50,27 @@ final class OrderFulfilmemt
         return $this->expiryDate;
     }
 
-    public function withMethod(\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null): OrderFulfilmemt
+    public function withMethod(?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null): OrderFulfilmemt
     {
         return new self($method, $this->distributionParty, $this->latestDeliveryDate, $this->exactDeliveryDate, $this->expiryDate);
     }
 
-    public function withDistributionParty(DistributionParty $distributionParty = null): OrderFulfilmemt
+    public function withDistributionParty(?DistributionParty $distributionParty = null): OrderFulfilmemt
     {
         return new self($this->method, $distributionParty, $this->latestDeliveryDate, $this->exactDeliveryDate, $this->expiryDate);
     }
 
-    public function withLatestDeliveryDate(\BolCom\RetailerApi\Model\Date $latestDeliveryDate = null): OrderFulfilmemt
+    public function withLatestDeliveryDate(?\BolCom\RetailerApi\Model\Date $latestDeliveryDate = null): OrderFulfilmemt
     {
         return new self($this->method, $this->distributionParty, $latestDeliveryDate, $this->exactDeliveryDate, $this->expiryDate);
     }
 
-    public function withExactDeliveryDate(\BolCom\RetailerApi\Model\Date $exactDeliveryDate = null): OrderFulfilmemt
+    public function withExactDeliveryDate(?\BolCom\RetailerApi\Model\Date $exactDeliveryDate = null): OrderFulfilmemt
     {
         return new self($this->method, $this->distributionParty, $this->latestDeliveryDate, $exactDeliveryDate, $this->expiryDate);
     }
 
-    public function withExpiryDate(\BolCom\RetailerApi\Model\Date $expiryDate = null): OrderFulfilmemt
+    public function withExpiryDate(?\BolCom\RetailerApi\Model\Date $expiryDate = null): OrderFulfilmemt
     {
         return new self($this->method, $this->distributionParty, $this->latestDeliveryDate, $this->exactDeliveryDate, $expiryDate);
     }

@@ -13,7 +13,7 @@ final class ShipmentOrder
     private $orderId;
     private $orderPlacedDateTime;
 
-    public function __construct(\BolCom\RetailerApi\Model\Order\OrderId $orderId = null, \BolCom\RetailerApi\Model\DateTime $orderPlacedDateTime = null)
+    public function __construct(?\BolCom\RetailerApi\Model\Order\OrderId $orderId = null, ?\BolCom\RetailerApi\Model\DateTime $orderPlacedDateTime = null)
     {
         $this->orderId = $orderId;
         $this->orderPlacedDateTime = $orderPlacedDateTime;
@@ -29,12 +29,12 @@ final class ShipmentOrder
         return $this->orderPlacedDateTime;
     }
 
-    public function withOrderId(\BolCom\RetailerApi\Model\Order\OrderId $orderId = null): ShipmentOrder
+    public function withOrderId(?\BolCom\RetailerApi\Model\Order\OrderId $orderId = null): ShipmentOrder
     {
         return new self($orderId, $this->orderPlacedDateTime);
     }
 
-    public function withOrderPlacedDateTime(\BolCom\RetailerApi\Model\DateTime $orderPlacedDateTime = null): ShipmentOrder
+    public function withOrderPlacedDateTime(?\BolCom\RetailerApi\Model\DateTime $orderPlacedDateTime = null): ShipmentOrder
     {
         return new self($this->orderId, $orderPlacedDateTime);
     }

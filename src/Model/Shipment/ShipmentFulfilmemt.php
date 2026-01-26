@@ -14,7 +14,7 @@ final class ShipmentFulfilmemt
     private $distributionParty;
     private $latestDeliveryDate;
 
-    public function __construct(\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null, DistributionParty $distributionParty = null, \BolCom\RetailerApi\Model\Date $latestDeliveryDate = null)
+    public function __construct(?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null, ?DistributionParty $distributionParty = null, ?\BolCom\RetailerApi\Model\Date $latestDeliveryDate = null)
     {
         $this->method = $method;
         $this->distributionParty = $distributionParty;
@@ -36,17 +36,17 @@ final class ShipmentFulfilmemt
         return $this->latestDeliveryDate;
     }
 
-    public function withMethod(\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null): ShipmentFulfilmemt
+    public function withMethod(?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $method = null): ShipmentFulfilmemt
     {
         return new self($method, $this->distributionParty, $this->latestDeliveryDate);
     }
 
-    public function withDistributionParty(DistributionParty $distributionParty = null): ShipmentFulfilmemt
+    public function withDistributionParty(?DistributionParty $distributionParty = null): ShipmentFulfilmemt
     {
         return new self($this->method, $distributionParty, $this->latestDeliveryDate);
     }
 
-    public function withLatestDeliveryDate(\BolCom\RetailerApi\Model\Date $latestDeliveryDate = null): ShipmentFulfilmemt
+    public function withLatestDeliveryDate(?\BolCom\RetailerApi\Model\Date $latestDeliveryDate = null): ShipmentFulfilmemt
     {
         return new self($this->method, $this->distributionParty, $latestDeliveryDate);
     }

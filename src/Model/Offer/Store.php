@@ -17,7 +17,7 @@ final class Store
      * @param \BolCom\RetailerApi\Model\Offer\Title|null $productTitle
      * @param \BolCom\RetailerApi\Model\Offer\CountryCode[] $visible
      */
-    public function __construct(Title $productTitle = null, array $visible = null)
+    public function __construct(?Title $productTitle = null, ?array $visible = null)
     {
         $this->productTitle = $productTitle;
         if ($visible !== null) {
@@ -44,7 +44,7 @@ final class Store
         return $this->visible;
     }
 
-    public function withProductTitle(Title $productTitle = null): Store
+    public function withProductTitle(?Title $productTitle = null): Store
     {
         return new self($productTitle, $this->visible);
     }
@@ -53,7 +53,7 @@ final class Store
      * @param \BolCom\RetailerApi\Model\Offer\CountryCode[] $visible
      * @return \BolCom\RetailerApi\Model\Offer\Store
      */
-    public function withVisible(array $visible = null): Store
+    public function withVisible(?array $visible = null): Store
     {
         return new self($this->productTitle, $visible);
     }

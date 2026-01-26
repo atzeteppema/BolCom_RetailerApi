@@ -21,7 +21,7 @@ final class ReducedReturnItem
      * @param \BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod
      * @param \BolCom\RetailerApi\Model\Rma\ReturnItem[]|null $returnItems
      */
-    public function __construct(ReturnId $returnId = null, \BolCom\RetailerApi\Model\DateTime $registrationDateTime = null, \BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod = null, array $returnItems)
+    public function __construct(?ReturnId $returnId = null, ?\BolCom\RetailerApi\Model\DateTime $registrationDateTime = null, ?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod = null, array $returnItems)
     {
         $this->returnId = $returnId;
         $this->registrationDateTime = $registrationDateTime;
@@ -58,17 +58,17 @@ final class ReducedReturnItem
         return $this->returnItems;
     }
 
-    public function withReturnId(ReturnId $returnId = null): ReducedReturnItem
+    public function withReturnId(?ReturnId $returnId = null): ReducedReturnItem
     {
         return new self($returnId, $this->registrationDateTime, $this->fulfilmentMethod, $this->returnItems);
     }
 
-    public function withRegistrationDateTime(\BolCom\RetailerApi\Model\DateTime $registrationDateTime = null): ReducedReturnItem
+    public function withRegistrationDateTime(?\BolCom\RetailerApi\Model\DateTime $registrationDateTime = null): ReducedReturnItem
     {
         return new self($this->returnId, $registrationDateTime, $this->fulfilmentMethod, $this->returnItems);
     }
 
-    public function withFulfilmentMethod(\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod = null): ReducedReturnItem
+    public function withFulfilmentMethod(?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod = null): ReducedReturnItem
     {
         return new self($this->returnId, $this->registrationDateTime, $fulfilmentMethod, $this->returnItems);
     }

@@ -51,7 +51,7 @@ final class ShipOrderItems extends \Prooph\Common\Messaging\Query
      * @param string $shippingLabelId
      * @param \BolCom\RetailerApi\Model\Transport\TransportInstruction $transport
      */
-public static function with(array $orderItems, string $shipmentReference = null, string $shippingLabelId = null, \BolCom\RetailerApi\Model\Transport\TransportInstruction $transport = null): ShipOrderItems
+public static function with(array $orderItems, ?string $shipmentReference = null, ?string $shippingLabelId = null, ?\BolCom\RetailerApi\Model\Transport\TransportInstruction $transport = null): ShipOrderItems
     {
         $__array_orderItems = [];
 

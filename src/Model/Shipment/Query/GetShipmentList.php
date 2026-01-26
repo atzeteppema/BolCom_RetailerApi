@@ -31,7 +31,7 @@ final class GetShipmentList extends \Prooph\Common\Messaging\Query
         return isset($this->payload['orderId']) ? \BolCom\RetailerApi\Model\Order\OrderId::fromString($this->payload['orderId']) : null;
     }
 
-    public static function with(int $page, \BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod = null, \BolCom\RetailerApi\Model\Order\OrderId $orderId = null): GetShipmentList
+    public static function with(int $page, ?\BolCom\RetailerApi\Model\Offer\FulfilmentMethod $fulfilmentMethod = null, ?\BolCom\RetailerApi\Model\Order\OrderId $orderId = null): GetShipmentList
     {
         return new self([
             'page' => $page,

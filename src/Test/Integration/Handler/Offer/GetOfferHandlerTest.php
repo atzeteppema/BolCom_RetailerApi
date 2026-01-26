@@ -11,6 +11,7 @@ use BolCom\RetailerApi\Client\ClientConfig;
 use BolCom\RetailerApi\Infrastructure\ClientPool;
 use BolCom\RetailerApi\Model\Offer\OfferId;
 use BolCom\RetailerApi\Model\Offer\Query\GetOffer;
+use BolCom\RetailerApi\Model\Offer\RetailerOffer;
 
 class GetOfferHandlerTest extends \PHPUnit\Framework\TestCase
 {
@@ -25,6 +26,8 @@ class GetOfferHandlerTest extends \PHPUnit\Framework\TestCase
 
     public function test__invoke()
     {
-        $this->messageBus->dispatch(GetOffer::with(OfferId::fromString('13722de8-8182-d161-5422-4a0a1caab5c8')));
+        $offer = $this->messageBus->dispatch(GetOffer::with(OfferId::fromString('13722de8-8182-d161-5422-4a0a1caab5c8')));
+
+        $this->assertInstanceOf(RetailerOffer::class, $offer);
     }
 }

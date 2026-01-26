@@ -20,7 +20,7 @@ final class ShipmentItem
     private $fulfilment;
     private $selectedDeliveryWindow;
 
-    public function __construct(\BolCom\RetailerApi\Model\Order\OrderItemId $orderItemId, ShipmentOrder $order = null, Offer $offer, Product $product, \BolCom\RetailerApi\Model\Order\Quantity $quantity, \BolCom\RetailerApi\Model\CurrencyAmount $unitPrice, \BolCom\RetailerApi\Model\CurrencyAmount $commission = null, ShipmentFulfilmemt $fulfilment, \BolCom\RetailerApi\Model\Order\SelectedDeliveryWindow $selectedDeliveryWindow = null)
+    public function __construct(?\BolCom\RetailerApi\Model\Order\OrderItemId $orderItemId, ?ShipmentOrder $order = null, Offer $offer, Product $product, \BolCom\RetailerApi\Model\Order\Quantity $quantity, \BolCom\RetailerApi\Model\CurrencyAmount $unitPrice, ?\BolCom\RetailerApi\Model\CurrencyAmount $commission = null, ShipmentFulfilmemt $fulfilment, ?\BolCom\RetailerApi\Model\Order\SelectedDeliveryWindow $selectedDeliveryWindow = null)
     {
         $this->orderItemId = $orderItemId;
         $this->order = $order;
@@ -83,7 +83,7 @@ final class ShipmentItem
         return new self($orderItemId, $this->order, $this->offer, $this->product, $this->quantity, $this->unitPrice, $this->commission, $this->fulfilment, $this->selectedDeliveryWindow);
     }
 
-    public function withOrder(ShipmentOrder $order = null): ShipmentItem
+    public function withOrder(?ShipmentOrder $order = null): ShipmentItem
     {
         return new self($this->orderItemId, $order, $this->offer, $this->product, $this->quantity, $this->unitPrice, $this->commission, $this->fulfilment, $this->selectedDeliveryWindow);
     }
@@ -108,7 +108,7 @@ final class ShipmentItem
         return new self($this->orderItemId, $this->order, $this->offer, $this->product, $this->quantity, $unitPrice, $this->commission, $this->fulfilment, $this->selectedDeliveryWindow);
     }
 
-    public function withCommission(\BolCom\RetailerApi\Model\CurrencyAmount $commission = null): ShipmentItem
+    public function withCommission(?\BolCom\RetailerApi\Model\CurrencyAmount $commission = null): ShipmentItem
     {
         return new self($this->orderItemId, $this->order, $this->offer, $this->product, $this->quantity, $this->unitPrice, $commission, $this->fulfilment, $this->selectedDeliveryWindow);
     }
@@ -118,7 +118,7 @@ final class ShipmentItem
         return new self($this->orderItemId, $this->order, $this->offer, $this->product, $this->quantity, $this->unitPrice, $this->commission, $fulfilment, $this->selectedDeliveryWindow);
     }
 
-    public function withSelectedDeliveryWindow(\BolCom\RetailerApi\Model\Order\SelectedDeliveryWindow $selectedDeliveryWindow = null): ShipmentItem
+    public function withSelectedDeliveryWindow(?\BolCom\RetailerApi\Model\Order\SelectedDeliveryWindow $selectedDeliveryWindow = null): ShipmentItem
     {
         return new self($this->orderItemId, $this->order, $this->offer, $this->product, $this->quantity, $this->unitPrice, $this->commission, $this->fulfilment, $selectedDeliveryWindow);
     }

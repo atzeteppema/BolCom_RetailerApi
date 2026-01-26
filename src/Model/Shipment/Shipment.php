@@ -29,7 +29,7 @@ final class Shipment
      * @param \BolCom\RetailerApi\Model\Shipment\AddressDetails $shipmentDetails
      * @param \BolCom\RetailerApi\Model\Shipment\AddressDetails $billingDetails
      */
-    public function __construct(ShipmentId $shipmentId, \BolCom\RetailerApi\Model\DateTime $shipmentDateTime, string $shipmentReference = null, ShipmentOrder $order, array $shipmentItems, \BolCom\RetailerApi\Model\Transport\Transport $transport = null, AddressDetails $shipmentDetails = null, AddressDetails $billingDetails = null)
+    public function __construct(ShipmentId $shipmentId, \BolCom\RetailerApi\Model\DateTime $shipmentDateTime, ?string $shipmentReference = null, ShipmentOrder $order, array $shipmentItems, ?\BolCom\RetailerApi\Model\Transport\Transport $transport = null, ?AddressDetails $shipmentDetails = null, ?AddressDetails $billingDetails = null)
     {
         $this->shipmentId = $shipmentId;
         $this->shipmentDateTime = $shipmentDateTime;
@@ -101,7 +101,7 @@ final class Shipment
         return new self($this->shipmentId, $shipmentDateTime, $this->shipmentReference, $this->order, $this->shipmentItems, $this->transport, $this->shipmentDetails, $this->billingDetails);
     }
 
-    public function withShipmentReference(string $shipmentReference = null): Shipment
+    public function withShipmentReference(?string $shipmentReference = null): Shipment
     {
         return new self($this->shipmentId, $this->shipmentDateTime, $shipmentReference, $this->order, $this->shipmentItems, $this->transport, $this->shipmentDetails, $this->billingDetails);
     }
@@ -120,17 +120,17 @@ final class Shipment
         return new self($this->shipmentId, $this->shipmentDateTime, $this->shipmentReference, $this->order, $shipmentItems, $this->transport, $this->shipmentDetails, $this->billingDetails);
     }
 
-    public function withTransport(\BolCom\RetailerApi\Model\Transport\Transport $transport = null): Shipment
+    public function withTransport(?\BolCom\RetailerApi\Model\Transport\Transport $transport = null): Shipment
     {
         return new self($this->shipmentId, $this->shipmentDateTime, $this->shipmentReference, $this->order, $this->shipmentItems, $transport, $this->shipmentDetails, $this->billingDetails);
     }
 
-    public function withShipmentDetails(AddressDetails $shipmentDetails = null): Shipment
+    public function withShipmentDetails(?AddressDetails $shipmentDetails = null): Shipment
     {
         return new self($this->shipmentId, $this->shipmentDateTime, $this->shipmentReference, $this->order, $this->shipmentItems, $this->transport, $shipmentDetails, $this->billingDetails);
     }
 
-    public function withBillingDetails(AddressDetails $billingDetails = null): Shipment
+    public function withBillingDetails(?AddressDetails $billingDetails = null): Shipment
     {
         return new self($this->shipmentId, $this->shipmentDateTime, $this->shipmentReference, $this->order, $this->shipmentItems, $this->transport, $this->shipmentDetails, $billingDetails);
     }

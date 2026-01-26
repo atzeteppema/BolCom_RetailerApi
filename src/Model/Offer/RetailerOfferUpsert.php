@@ -19,7 +19,7 @@ final class RetailerOfferUpsert
     private $stock;
     private $fulfilment;
 
-    public function __construct(Ean $ean, OfferCondition $condition, Reference $reference = null, bool $onHoldByRetailer, Title $unknownProductTitle = null, Pricing $pricing, Stock $stock, Fulfilment $fulfilment)
+    public function __construct(Ean $ean, OfferCondition $condition, ?Reference $reference = null, bool $onHoldByRetailer, ?Title $unknownProductTitle = null, Pricing $pricing, Stock $stock, Fulfilment $fulfilment)
     {
         $this->ean = $ean;
         $this->condition = $condition;
@@ -81,7 +81,7 @@ final class RetailerOfferUpsert
         return new self($this->ean, $condition, $this->reference, $this->onHoldByRetailer, $this->unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment);
     }
 
-    public function withReference(Reference $reference = null): RetailerOfferUpsert
+    public function withReference(?Reference $reference = null): RetailerOfferUpsert
     {
         return new self($this->ean, $this->condition, $reference, $this->onHoldByRetailer, $this->unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment);
     }
@@ -91,7 +91,7 @@ final class RetailerOfferUpsert
         return new self($this->ean, $this->condition, $this->reference, $onHoldByRetailer, $this->unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment);
     }
 
-    public function withUnknownProductTitle(Title $unknownProductTitle = null): RetailerOfferUpsert
+    public function withUnknownProductTitle(?Title $unknownProductTitle = null): RetailerOfferUpsert
     {
         return new self($this->ean, $this->condition, $this->reference, $this->onHoldByRetailer, $unknownProductTitle, $this->pricing, $this->stock, $this->fulfilment);
     }

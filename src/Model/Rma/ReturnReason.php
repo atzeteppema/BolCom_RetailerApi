@@ -14,7 +14,7 @@ final class ReturnReason
     private $detailedReason;
     private $customerComments;
 
-    public function __construct(string $mainReason = null, string $detailedReason = null, string $customerComments = null)
+    public function __construct(?string $mainReason = null, ?string $detailedReason = null, ?string $customerComments = null)
     {
         $this->mainReason = $mainReason;
         $this->detailedReason = $detailedReason;
@@ -36,17 +36,17 @@ final class ReturnReason
         return $this->customerComments;
     }
 
-    public function withMainReason(string $mainReason = null): ReturnReason
+    public function withMainReason(?string $mainReason = null): ReturnReason
     {
         return new self($mainReason, $this->detailedReason, $this->customerComments);
     }
 
-    public function withDetailedReason(string $detailedReason = null): ReturnReason
+    public function withDetailedReason(?string $detailedReason = null): ReturnReason
     {
         return new self($this->mainReason, $detailedReason, $this->customerComments);
     }
 
-    public function withCustomerComments(string $customerComments = null): ReturnReason
+    public function withCustomerComments(?string $customerComments = null): ReturnReason
     {
         return new self($this->mainReason, $this->detailedReason, $customerComments);
     }

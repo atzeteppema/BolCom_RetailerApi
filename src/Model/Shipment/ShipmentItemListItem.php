@@ -13,7 +13,7 @@ final class ShipmentItemListItem
     private $orderItemId;
     private $ean;
 
-    public function __construct(\BolCom\RetailerApi\Model\Order\OrderItemId $orderItemId, \BolCom\RetailerApi\Model\Offer\Ean $ean = null)
+    public function __construct(\BolCom\RetailerApi\Model\Order\OrderItemId $orderItemId, ?\BolCom\RetailerApi\Model\Offer\Ean $ean = null)
     {
         $this->orderItemId = $orderItemId;
         $this->ean = $ean;
@@ -34,7 +34,7 @@ final class ShipmentItemListItem
         return new self($orderItemId, $this->ean);
     }
 
-    public function withEan(\BolCom\RetailerApi\Model\Offer\Ean $ean = null): ShipmentItemListItem
+    public function withEan(?\BolCom\RetailerApi\Model\Offer\Ean $ean = null): ShipmentItemListItem
     {
         return new self($this->orderItemId, $ean);
     }

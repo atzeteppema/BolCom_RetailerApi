@@ -22,7 +22,7 @@ class CancelOrderHandlerTest extends \PHPUnit\Framework\TestCase
         $messageBus = new \BolCom\RetailerApi\Infrastructure\MessageBus($clientPool);
 
         $messageBus->dispatch(CancelOrder::with(
-                CancelOrderItem::fromArray([
+            CancelOrderItem::fromArray([
                 'orderItemId' => '6107434013',
                 'reasonCode' => CancellationReason::REQUESTED_BY_CUSTOMER
             ])

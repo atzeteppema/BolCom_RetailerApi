@@ -22,7 +22,7 @@ class Client extends \GuzzleHttp\Client implements ClientInterface
 {
     public function __construct(
         ClientConfigInterface $clientConfig,
-        LoggerInterface $logger = null,
+        ?LoggerInterface $logger = null,
         string $userAgent = 'bol-com/retailer-api/1.1'
     ) {
         $stack = $this->handlerStack($clientConfig, $logger);
@@ -42,7 +42,7 @@ class Client extends \GuzzleHttp\Client implements ClientInterface
      *
      * @return HandlerStack
      */
-    protected function handlerStack(ClientConfigInterface $clientConfig, LoggerInterface $logger = null): HandlerStack
+    protected function handlerStack(ClientConfigInterface $clientConfig, ?LoggerInterface $logger = null): HandlerStack
     {
         $stack = new HandlerStack(\GuzzleHttp\choose_handler());
         $stack->push(Middleware::redirect(), 'allow_redirects');

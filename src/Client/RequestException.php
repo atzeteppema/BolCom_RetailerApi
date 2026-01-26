@@ -15,10 +15,10 @@ class RequestException extends \GuzzleHttp\Exception\RequestException
 {
     public static function create(
         RequestInterface $request,
-        ResponseInterface $response = null,
-        \Throwable $previous = null,
+        ?ResponseInterface $response = null,
+        ?\Throwable $previous = null,
         array $ctx = [],
-        BodySummarizerInterface $bodySummarizer = null
+        ?BodySummarizerInterface $bodySummarizer = null
     ): \GuzzleHttp\Exception\RequestException  {
         if ($response === null || !($response->getBody() instanceof JsonResponse)) {
             return parent::create($request, $response);

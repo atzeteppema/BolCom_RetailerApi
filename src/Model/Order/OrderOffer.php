@@ -13,7 +13,7 @@ final class OrderOffer
     private $offerId;
     private $reference;
 
-    public function __construct(\BolCom\RetailerApi\Model\Offer\OfferId $offerId, \BolCom\RetailerApi\Model\Offer\Reference $reference = null)
+    public function __construct(\BolCom\RetailerApi\Model\Offer\OfferId $offerId, ?\BolCom\RetailerApi\Model\Offer\Reference $reference = null)
     {
         $this->offerId = $offerId;
         $this->reference = $reference;
@@ -34,7 +34,7 @@ final class OrderOffer
         return new self($offerId, $this->reference);
     }
 
-    public function withReference(\BolCom\RetailerApi\Model\Offer\Reference $reference = null): OrderOffer
+    public function withReference(?\BolCom\RetailerApi\Model\Offer\Reference $reference = null): OrderOffer
     {
         return new self($this->offerId, $reference);
     }

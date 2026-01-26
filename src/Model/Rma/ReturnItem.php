@@ -35,7 +35,7 @@ final class ReturnItem
      * @param string $transporterName
      * @param \BolCom\RetailerApi\Model\Rma\ReturnProcessingResult[] $processingResults
      */
-    public function __construct(RmaId $rmaId, \BolCom\RetailerApi\Model\Order\OrderId $orderId, \BolCom\RetailerApi\Model\Offer\Ean $ean, string $title = null, int $expectedQuantity = null, ReturnReason $returnReason = null, \BolCom\RetailerApi\Model\Customer\CustomerDetails $customerDetails = null, bool $handled, \BolCom\RetailerApi\Model\Transport\TrackAndTrace $trackAndTrace = null, string $transporterName = null, array $processingResults = null)
+    public function __construct(RmaId $rmaId, \BolCom\RetailerApi\Model\Order\OrderId $orderId, \BolCom\RetailerApi\Model\Offer\Ean $ean, ?string $title = null, ?int $expectedQuantity = null, ?ReturnReason $returnReason = null, ?\BolCom\RetailerApi\Model\Customer\CustomerDetails $customerDetails = null, bool $handled, ?\BolCom\RetailerApi\Model\Transport\TrackAndTrace $trackAndTrace = null, ?string $transporterName = null, ?array $processingResults = null)
     {
         $this->rmaId = $rmaId;
         $this->orderId = $orderId;
@@ -131,22 +131,22 @@ final class ReturnItem
         return new self($this->rmaId, $this->orderId, $ean, $this->title, $this->expectedQuantity, $this->returnReason, $this->customerDetails, $this->handled, $this->trackAndTrace, $this->transporterName, $this->processingResults);
     }
 
-    public function withTitle(string $title = null): ReturnItem
+    public function withTitle(?string $title = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $title, $this->expectedQuantity, $this->returnReason, $this->customerDetails, $this->handled, $this->trackAndTrace, $this->transporterName, $this->processingResults);
     }
 
-    public function withExpectedQuantity(int $expectedQuantity = null): ReturnItem
+    public function withExpectedQuantity(?int $expectedQuantity = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $expectedQuantity, $this->returnReason, $this->customerDetails, $this->handled, $this->trackAndTrace, $this->transporterName, $this->processingResults);
     }
 
-    public function withReturnReason(ReturnReason $returnReason = null): ReturnItem
+    public function withReturnReason(?ReturnReason $returnReason = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $this->expectedQuantity, $returnReason, $this->customerDetails, $this->handled, $this->trackAndTrace, $this->transporterName, $this->processingResults);
     }
 
-    public function withCustomerDetails(\BolCom\RetailerApi\Model\Customer\CustomerDetails $customerDetails = null): ReturnItem
+    public function withCustomerDetails(?\BolCom\RetailerApi\Model\Customer\CustomerDetails $customerDetails = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $this->expectedQuantity, $this->returnReason, $customerDetails, $this->handled, $this->trackAndTrace, $this->transporterName, $this->processingResults);
     }
@@ -156,12 +156,12 @@ final class ReturnItem
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $this->expectedQuantity, $this->returnReason, $this->customerDetails, $handled, $this->trackAndTrace, $this->transporterName, $this->processingResults);
     }
 
-    public function withTrackAndTrace(\BolCom\RetailerApi\Model\Transport\TrackAndTrace $trackAndTrace = null): ReturnItem
+    public function withTrackAndTrace(?\BolCom\RetailerApi\Model\Transport\TrackAndTrace $trackAndTrace = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $this->expectedQuantity, $this->returnReason, $this->customerDetails, $this->handled, $trackAndTrace, $this->transporterName, $this->processingResults);
     }
 
-    public function withTransporterName(string $transporterName = null): ReturnItem
+    public function withTransporterName(?string $transporterName = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $this->expectedQuantity, $this->returnReason, $this->customerDetails, $this->handled, $this->trackAndTrace, $transporterName, $this->processingResults);
     }
@@ -170,7 +170,7 @@ final class ReturnItem
      * @param \BolCom\RetailerApi\Model\Rma\ReturnProcessingResult[] $processingResults
      * @return \BolCom\RetailerApi\Model\Rma\ReturnItem
      */
-    public function withProcessingResults(array $processingResults = null): ReturnItem
+    public function withProcessingResults(?array $processingResults = null): ReturnItem
     {
         return new self($this->rmaId, $this->orderId, $this->ean, $this->title, $this->expectedQuantity, $this->returnReason, $this->customerDetails, $this->handled, $this->trackAndTrace, $this->transporterName, $processingResults);
     }
