@@ -14,7 +14,7 @@ final class OfferStock
     private $correctedStock;
     private $managedByRetailer;
 
-    public function __construct(QuantityInStock $amount, QuantityInStock $correctedStock, bool $managedByRetailer)
+    public function __construct(QuantityInStock $amount, ?QuantityInStock $correctedStock, bool $managedByRetailer)
     {
         $this->amount = $amount;
         $this->correctedStock = $correctedStock;
@@ -26,7 +26,7 @@ final class OfferStock
         return $this->amount;
     }
 
-    public function correctedStock(): QuantityInStock
+    public function correctedStock(): ?QuantityInStock
     {
         return $this->correctedStock;
     }
@@ -41,7 +41,7 @@ final class OfferStock
         return new self($amount, $this->correctedStock, $this->managedByRetailer);
     }
 
-    public function withCorrectedStock(QuantityInStock $correctedStock): OfferStock
+    public function withCorrectedStock(?QuantityInStock $correctedStock): OfferStock
     {
         return new self($this->amount, $correctedStock, $this->managedByRetailer);
     }
@@ -59,11 +59,15 @@ final class OfferStock
 
         $amount = QuantityInStock::fromScalar($data['amount']);
 
-        if (! isset($data['correctedStock']) || ! \is_int($data['correctedStock'])) {
-            throw new \InvalidArgumentException("Key 'correctedStock' is missing in data array or is not a int");
-        }
+        if (isset($data['correctedStock'])) {
+            if (! \is_int($data['correctedStock'])) {
+                throw new \InvalidArgumentException("Key 'correctedStock' is not a int");
+            }
 
-        $correctedStock = QuantityInStock::fromScalar($data['correctedStock']);
+            $correctedStock = QuantityInStock::fromScalar($data['correctedStock']);
+        } else {
+            $correctedStock = null;
+        }
 
         if (! isset($data['managedByRetailer']) || ! \is_bool($data['managedByRetailer'])) {
             throw new \InvalidArgumentException("Key 'managedByRetailer' is missing in data array or is not a bool");
@@ -82,7 +86,7 @@ final class OfferStock
     {
         return [
             'amount' => $this->amount->toScalar(),
-            'correctedStock' => $this->correctedStock->toScalar(),
+            'correctedStock' => null === $this->correctedStock ? null : $this->correctedStock->toScalar(),
             'managedByRetailer' => $this->managedByRetailer,
         ];
     }

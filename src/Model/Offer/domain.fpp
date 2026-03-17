@@ -97,7 +97,7 @@ namespace BolCom\RetailerApi\Model\Offer {
 
     data OfferStock = OfferStock {
         QuantityInStock $amount,
-        QuantityInStock $correctedStock,
+        ?QuantityInStock $correctedStock,
         bool $managedByRetailer
     } deriving (FromArray, ToArray);
 
