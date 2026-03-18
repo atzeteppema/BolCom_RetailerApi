@@ -27,7 +27,7 @@ final class RetailerOffer
      * @param \BolCom\RetailerApi\Model\Offer\Ean $ean
      * @param \BolCom\RetailerApi\Model\Offer\Reference $reference
      * @param bool $onHoldByRetailer
-     * @param \BolCom\RetailerApi\Model\Offer\Title $unknownProductTitle
+     * @param \BolCom\RetailerApi\Model\Offer\Title|null $unknownProductTitle
      * @param \BolCom\RetailerApi\Model\Offer\Pricing $pricing
      * @param \BolCom\RetailerApi\Model\Offer\OfferStock $stock
      * @param \BolCom\RetailerApi\Model\Offer\Fulfilment $fulfilment
@@ -35,7 +35,7 @@ final class RetailerOffer
      * @param \BolCom\RetailerApi\Model\Offer\OfferCondition $condition
      * @param \BolCom\RetailerApi\Model\Offer\NotPublishableReasons[] $notPublishableReasons
      */
-    public function __construct(OfferId $offerId, Ean $ean, Reference $reference, bool $onHoldByRetailer, ?Title $unknownProductTitle = null, Pricing $pricing, OfferStock $stock, Fulfilment $fulfilment, Store $store, OfferCondition $condition, ?array $notPublishableReasons = null)
+    public function __construct(OfferId $offerId, Ean $ean, Reference $reference, bool $onHoldByRetailer, ?Title $unknownProductTitle, Pricing $pricing, OfferStock $stock, Fulfilment $fulfilment, Store $store, OfferCondition $condition, ?array $notPublishableReasons = null)
     {
         $this->offerId = $offerId;
         $this->ean = $ean;
